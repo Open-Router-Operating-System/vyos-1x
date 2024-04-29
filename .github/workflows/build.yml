@@ -1,0 +1,10 @@
+on:
+  push:
+  
+jobs:
+  build:
+    uses: Open-Router-Operating-System/oros-github-builder/.github/workflows/package-build.yml@sagitta
+    secrets: inherit
+    with:
+      name: ${{ github.event.repository.name }}
+      cmd: dpkg-buildpackage -uc -us -tc -b 
